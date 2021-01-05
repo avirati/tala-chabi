@@ -1,0 +1,7 @@
+:root {
+  --theme-color-primary: #222222;
+  --theme-color-secondary: #F5F5F5;
+
+  --header-height: 60px;
+  --header-font-size: 30px;
+}

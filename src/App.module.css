@@ -1,0 +1,41 @@
+@import './vars.css';
+
+.Container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.Header {
+  background-color: var(--theme-color-primary);
+  width: 100%;
+  height: var(--header-height);
+  color: var(--theme-color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.Body {
+  background-color: var(--theme-color-secondary);
+  width: 100%;
+  height: calc(100% - var(--header-height) - var(--header-height));
+}
+
+.Footer {
+  background-color: var(--theme-color-primary);
+  width: 100%;
+  height: var(--header-height);
+  color: var(--theme-color-secondary);
+}
+
+.ApplicationName {
+  font-size: var(--header-font-size);
+}
+
+.AddNewPasswordButton {
+  position: absolute;
+  right: 10px;
+}

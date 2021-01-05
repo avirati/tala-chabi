@@ -1,24 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import classnames from 'classnames';
+
+import styles from './App.module.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.Container}>
+      <div className={styles.Header}>
+        <div className={styles.ApplicationName}>Tala Chabi</div>
+        <button className={classnames('button', styles.AddNewPasswordButton)}>NEW</button>
+      </div>
+      <div className={styles.Body}></div>
+      <div className={styles.Footer}></div>
     </div>
   );
 }
