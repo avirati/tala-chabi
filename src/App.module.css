@@ -22,6 +22,8 @@
   background-color: var(--theme-color-secondary);
   width: 100%;
   height: calc(100% - var(--header-height) - var(--header-height));
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .Footer {
@@ -36,6 +38,9 @@
 }
 
 .AddNewPasswordButton {
+  font-size: 30px;
   position: absolute;
   right: 10px;
+  padding: 0 10px !important;
+  font-weight: 100;
 }
