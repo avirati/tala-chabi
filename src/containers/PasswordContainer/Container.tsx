@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
+import { PasswordEntry } from './components/PasswordEntry';
 import { savedPasswordsSelector } from './state/selectors';
 
 import styles from './Container.module.css';
-import { createStructuredSelector } from 'reselect';
-import { PasswordEntry } from './components/PasswordEntry';
 
 interface IStateProps {
   savedPasswords: ReturnType<typeof savedPasswordsSelector>

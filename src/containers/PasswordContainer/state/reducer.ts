@@ -6,22 +6,6 @@ const initialState: IPasswordContainerState = {
     UID: 'sample-uid',
     login: 'avinashverma.it@gmail.com',
     name: 'Google Mail',
-  }, {
-    UID: 'sample-uid',
-    login: 'avinashverma.it@gmail.com',
-    name: 'Google Mail',
-  }, {
-    UID: 'sample-uid',
-    login: 'avinashverma.it@gmail.com',
-    name: 'Google Mail',
-  }, {
-    UID: 'sample-uid',
-    login: 'avinashverma.it@gmail.com',
-    name: 'Google Mail',
-  }, {
-    UID: 'sample-uid',
-    login: 'avinashverma.it@gmail.com',
-    name: 'Google Mail',
   }]
 };
 

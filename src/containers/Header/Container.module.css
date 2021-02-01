@@ -1,0 +1,32 @@
+@import '../../vars.css';
+
+.Header {
+  background-color: var(--theme-color-primary);
+  width: 100%;
+  height: var(--header-height);
+  color: var(--theme-color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.ApplicationName {
+  font-size: var(--header-font-size);
+}
+
+.AddNewPasswordButton {
+  height: 40px;
+  width: 40px;
+  border: 1px solid var(--theme-color-secondary);
+  background: var(--theme-color-primary);
+  color: var(--theme-color-secondary);
+  outline: none;
+  border-radius: 5px;
+  font-size: 30px;
+  position: absolute;
+  right: 10px;
+  padding: 10px;
+  font-weight: 100;
+  line-height: 0;
+}

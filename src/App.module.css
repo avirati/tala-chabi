@@ -7,17 +7,6 @@
   flex-direction: column;
 }
 
-.Header {
-  background-color: var(--theme-color-primary);
-  width: 100%;
-  height: var(--header-height);
-  color: var(--theme-color-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
 .Body {
   background-color: var(--theme-color-secondary);
   width: 100%;
@@ -31,16 +20,4 @@
   width: 100%;
   height: var(--header-height);
   color: var(--theme-color-secondary);
-}
-
-.ApplicationName {
-  font-size: var(--header-font-size);
-}
-
-.AddNewPasswordButton {
-  font-size: 30px;
-  position: absolute;
-  right: 10px;
-  padding: 0 10px !important;
-  font-weight: 100;
 }

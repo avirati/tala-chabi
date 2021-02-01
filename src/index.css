@@ -16,16 +16,6 @@ code {
     monospace;
 }
 
-.button {
-  height: 40px;
-  border: 1px solid var(--theme-color-secondary);
-  background: var(--theme-color-primary);
-  color: var(--theme-color-secondary);
-  padding: 0 20px;
-  outline: none;
-  border-radius: 5px;
-}
-
 .button:active {
   border: 1px solid var(--theme-color-primary);
   background: var(--theme-color-secondary);
