@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 
 import { PasswordContainer } from 'containers/PasswordContainer/Container';
 import { NewPasswordPopup } from 'containers/Popup/Container';
+import { NewPasswordForm } from 'containers/NewPasswordForm/Container';
 
 import styles from './App.module.css';
 
@@ -39,7 +40,7 @@ export class App extends React.PureComponent<{}, IState> {
             onHide={this.hideAddNewPasswordModal}
             heading='Add a Password'
           >
-            Hello
+            <NewPasswordForm />
           </NewPasswordPopup>
         </div>
       </>

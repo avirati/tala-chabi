@@ -1,5 +1,7 @@
+import { Category } from 'globalConstants';
+
 import { Actions } from './actions';
-import { Category, IPasswordContainerState } from '../interfaces';
+import { IPasswordContainerState } from '../interfaces';
 
 const initialState: IPasswordContainerState = {
   saved: [{
