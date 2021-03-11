@@ -8,8 +8,6 @@ import { isPopupVisibleSelector, popupTypeSelector } from './state/selectors';
 import { hidePopup } from './state/actions';
 import { PopupType } from './state/interfaces';
 
-import styles from './Container.module.css';
-
 interface IPublicProps {
   onPopupClose?: () => void;
 }
@@ -51,8 +49,8 @@ class PopupBare extends React.PureComponent<IProps> {
     const { isPopupVisible, popupType } = this.props;
     return isPopupVisible
     ? (
-      <div className={styles.Container}>
-        <div className={styles.Cross} onClick={this.onPopupClose}>x</div>
+      <div>
+        <div onClick={this.onPopupClose}>x</div>
         {
           popupType && getPopupBody(popupType)
         }

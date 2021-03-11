@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
-@import './vars.css';
 
 * {
   font-family: 'Roboto', 'Helvetica Neue', sans-serif;
@@ -14,11 +13,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-.button:active {
-  border: 1px solid var(--theme-color-primary);
-  background: var(--theme-color-secondary);
-  color:  var(--theme-color-primary);
-  transition: 0.2s;
 }

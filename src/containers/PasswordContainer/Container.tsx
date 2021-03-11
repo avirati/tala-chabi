@@ -2,10 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { PasswordEntry } from './components/PasswordEntry';
+import { Card } from './components/Card';
 import { savedPasswordsSelector } from './state/selectors';
-
-import styles from './Container.module.css';
 
 interface IStateProps {
   savedPasswords: ReturnType<typeof savedPasswordsSelector>
@@ -25,18 +23,16 @@ class PasswordContainerBare extends React.PureComponent<IProps> {
   public render() {
     const { savedPasswords = [] } = this.props;
     return (
-      <div className={styles.Container}>
+      <>
         {
           savedPasswords.map((entry, index) => (
-            <PasswordEntry
-              login={entry.login}
-              name={entry.name}
+            <Card
               key={index}
-              notes={entry.notes}
+              {...entry}
             />
           ))
         }
-      </div>
+      </>
     );
   }
 }

@@ -1,11 +1,47 @@
 import { Actions } from './actions';
-import { IPasswordContainerState } from '../interfaces';
+import { Category, IPasswordContainerState } from '../interfaces';
 
 const initialState: IPasswordContainerState = {
   saved: [{
-    UID: 'sample-uid',
+    UID: 'sample-uid-1',
     login: 'avinashverma.it@gmail.com',
-    name: 'Google Mail',
+    name: 'google.com',
+    category: Category.SOCIAL_MEDIA,
+    url: 'https://google.com',
+    notes: 'This is a nice note',
+  }, {
+    UID: 'sample-uid-2',
+    login: 'avidgt',
+    name: 'facebook.com',
+    category: Category.SOCIAL_MEDIA,
+    url: 'https://facebook.com',
+  }, {
+    UID: 'sample-uid-3',
+    login: 'avirati',
+    name: 'github.com',
+    category: Category.SOCIAL_MEDIA,
+    url: 'https://github.com',
+    notes: 'This is a nice note',
+  }, {
+    UID: 'sample-uid-1',
+    login: 'avinashverma.it@gmail.com',
+    name: 'google.com',
+    category: Category.SOCIAL_MEDIA,
+    url: 'https://google.com',
+    notes: 'This is a nice note',
+  }, {
+    UID: 'sample-uid-2',
+    login: 'avidgt',
+    name: 'facebook.com',
+    category: Category.SOCIAL_MEDIA,
+    url: 'https://facebook.com',
+  }, {
+    UID: 'sample-uid-3',
+    login: 'avirati',
+    name: 'github.com',
+    category: Category.SOCIAL_MEDIA,
+    url: 'https://github.com',
+    notes: 'This is a nice note',
   }]
 };
 

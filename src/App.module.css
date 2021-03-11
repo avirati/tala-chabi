@@ -1,23 +1,4 @@
-@import './vars.css';
-
 .Container {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.Body {
-  background-color: var(--theme-color-secondary);
-  width: 100%;
-  height: calc(100% - var(--header-height) - var(--header-height));
+  height: calc(100vh - 60px);
   overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.Footer {
-  background-color: var(--theme-color-primary);
-  width: 100%;
-  height: var(--header-height);
-  color: var(--theme-color-secondary);
 }
