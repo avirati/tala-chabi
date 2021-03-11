@@ -25,7 +25,7 @@ export class App extends React.PureComponent<{}, IState> {
               <div className='navbar-brand'>Tala Chabi</div>
               <Button
                 onClick={this.showAddNewPasswordModal}
-                variant='dark'
+                variant='outline-light'
               >
                 ADD
               </Button>

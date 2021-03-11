@@ -31,6 +31,7 @@ class Popup extends React.PureComponent<IProps> {
         </Modal.Body>
         <Modal.Footer>
           <Button
+            variant='outline-dark'
             onClick={this.props.onHide}
           >
             Close
