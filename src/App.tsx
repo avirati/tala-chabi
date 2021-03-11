@@ -1,28 +1,60 @@
 import React from 'react';
 import classnames from 'classnames';
+import { Button } from 'react-bootstrap';
 
 import { PasswordContainer } from 'containers/PasswordContainer/Container';
-import { Popup } from 'containers/Popup/Container';
+import { NewPasswordPopup } from 'containers/Popup/Container';
 
 import styles from './App.module.css';
 
-function App() {
-  return (
-    <>
-      <header>
-        <div className='navbar navbar-dark bg-dark shadow-sm'>
-          <div className='container-fluid pl-0 pr-0'>
-            <div className='navbar-brand'>Tala Chabi</div>
-            <button type='button' className='btn btn-dark border-white'>ADD</button>
-          </div>
-        </div>
-      </header>
-      <div className={classnames('container-fluid', styles.Container)}>
-        <PasswordContainer />
-        <Popup />
-      </div>
-    </>
-  );
+interface IState {
+  showAddNewPasswordModal: boolean;
 }
 
-export default App;
+export class App extends React.PureComponent<{}, IState> {
+  public state: IState = {
+    showAddNewPasswordModal: false,
+  }
+
+  public render() {
+    return (
+      <>
+        <header>
+          <div className='navbar navbar-dark bg-dark shadow-sm'>
+            <div className='container-fluid pl-0 pr-0'>
+              <div className='navbar-brand'>Tala Chabi</div>
+              <Button
+                onClick={this.showAddNewPasswordModal}
+                variant='dark'
+              >
+                ADD
+              </Button>
+            </div>
+          </div>
+        </header>
+        <div className={classnames('container-fluid', styles.Container)}>
+          <PasswordContainer />
+          <NewPasswordPopup
+            show={this.state.showAddNewPasswordModal}
+            onHide={this.hideAddNewPasswordModal}
+            heading='Add a Password'
+          >
+            Hello
+          </NewPasswordPopup>
+        </div>
+      </>
+    );
+  }
+
+  private hideAddNewPasswordModal = () => {
+    this.setState({
+      showAddNewPasswordModal: false,
+    });
+  }
+
+  private showAddNewPasswordModal = () => {
+    this.setState({
+      showAddNewPasswordModal: true,
+    });
+  }
+}
