@@ -7,19 +7,18 @@ import {
 } from 'react-bootstrap';
 
 import { categories } from 'globalConstants';
+import {
+  generateRandomPassword,
+  IRandomizerConfig,
+} from 'utils/Randomizer';
+import { waitForSeconds } from 'utils/Common';
 
-interface IState {
+interface IState extends IRandomizerConfig {
   website: string;
   login: string;
-
   password: string;
-  passwordLength: number;
-  useLetters: boolean;
-  useUppercaseChars: boolean;
-  useNumbers: boolean;
-  useSymbols: boolean;
-
   category: string;
+  passwordCopied: boolean;
 }
 
 class NewPasswordFormBare extends React.PureComponent<{}, IState> {
@@ -34,7 +33,8 @@ class NewPasswordFormBare extends React.PureComponent<{}, IState> {
     useSymbols: false,
     useUppercaseChars: true,
 
-    category: ''
+    category: '',
+    passwordCopied: false,
   }
   public render() {
     const {
@@ -47,7 +47,11 @@ class NewPasswordFormBare extends React.PureComponent<{}, IState> {
       useSymbols,
       useUppercaseChars,
       website,
+      passwordCopied,
     } = this.state;
+
+    const copyButtonRef = React.createRef<HTMLButtonElement>();
+
     return (
       <Form>
         <Form.Group controlId='formBasicWebsite'>
@@ -77,8 +81,12 @@ class NewPasswordFormBare extends React.PureComponent<{}, IState> {
               onChange={(e) => this.updateState('password', e.target.value)}
             />
             <InputGroup.Append>
-              <Button variant='outline-info'>⟳</Button>
-              <Button variant='dark'>Copy</Button>
+              <Button variant='outline-info' onClick={this.refreshPassword}>⟳</Button>
+              <Button variant='dark' onClick={this.copyPasswordToClipboard} ref={copyButtonRef}>
+                {
+                  passwordCopied ? 'Copied' : 'Copy'
+                }
+              </Button>
             </InputGroup.Append>
           </InputGroup>
         </Form.Group>
@@ -136,11 +144,69 @@ class NewPasswordFormBare extends React.PureComponent<{}, IState> {
     )
   }
 
-  private updateState = (field: keyof IState, value: any) => {
+  private updateState = async (field: keyof IState, value: any) => {
     this.setState({
       ...this.state,
       [field]: value,
-    })
+    });
+    await waitForSeconds(0.1);
+    this.refreshPassword();
+  }
+
+  private refreshPassword = () => {
+    const {
+      passwordLength,
+      useLetters,
+      useNumbers,
+      useSymbols,
+      useUppercaseChars,
+    } = this.state;
+
+    const generatedPassword = generateRandomPassword({
+      passwordLength,
+      useLetters,
+      useNumbers,
+      useSymbols,
+      useUppercaseChars,
+    });
+
+    this.setState({
+      password: generatedPassword,
+    });
+  }
+
+  private showCopiedMessage = async (durationInSeconds: number) => {
+    this.setState({
+      passwordCopied: true,
+    });
+    await waitForSeconds(durationInSeconds);
+    this.setState({
+      passwordCopied: false,
+    });
+  }
+
+  private copyPasswordToClipboard = async () => {
+    const { password } = this.state;
+    if (navigator.clipboard) {
+      await navigator.clipboard.writeText(password);
+    } else {
+      const textArea = document.createElement('textarea');
+      textArea.value = password;
+
+      // Avoid scrolling to bottom
+      textArea.style.top = '0';
+      textArea.style.left = '0';
+      textArea.style.position = 'fixed';
+
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      document.execCommand('copy');
+
+      document.body.removeChild(textArea);
+    }
+    await this.showCopiedMessage(1);
   }
 }
 
